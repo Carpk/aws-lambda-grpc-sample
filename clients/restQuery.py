@@ -6,14 +6,19 @@ with open('config.yml', 'r') as file:
 	conf = yaml.safe_load(file)
 
 
-print(conf['url'])
-
-url = "https://hz7xtzk10h.execute-api.us-east-1.amazonaws.com/Prod/alags/"
-
-
 response = requests.get(conf['url'] + "?t=" + conf['time'])
 
 print(response.json())
+
+ret = True
+
+if(ret)
+	print("The time requested was found in the logs")
+	# run post script
+else
+	print("The time requested was not found in the logs")
+
+
 
 
 
@@ -42,7 +47,4 @@ print(response.json())
 # response = session.get(url, headers=headers, verify=False)
 
 # print(response)
-
-
-
 

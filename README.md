@@ -8,12 +8,11 @@ These are a group of scripts used to generate log files on EC2, stored on S3, an
 This was developed using Python 3.9
 
 
-
-### Running the Scripts
+## Running the Scripts
 
 Each set of scipts are in thier own directory
 
-#### Python Clients
+### Python Clients
 
 Adjust the YAML config file to make adjustments to the settings
 
@@ -23,13 +22,11 @@ To make a python REST call:
 
 To make a gPRC call:
 
-First we nee to start the gPRC server
+First we need to start the gPRC server
 
+`python grpc_server.py`
 
-
-
-
-#### Log Generator
+### Log Generator
 
 The log generator is on an EC2 instance an can be ran using:
 
