@@ -8,43 +8,15 @@ with open('config.yml', 'r') as file:
 
 response = requests.get(conf['url'] + "?t=" + conf['time'])
 
-print(response.json())
 
-ret = True
-
-if(ret)
-	print("The time requested was found in the logs")
-	# run post script
-else
+if(not response.json()):
 	print("The time requested was not found in the logs")
+	exit(0)
 
 
 
+obj = {'t':conf['time'],'d':conf['delta'],'r':conf['regex'],'b':conf['bucket'],'k':conf['log']}
+result = requests.post(conf['url'], json = obj)
 
-
-
-
-
-# session = requests.Session()
-
-# # url = "https://hz7xtzk10h.execute-api.us-east-1.amazonaws.com/Prod/alags/?t=10:00"
-# # # credentials = {"userName": "administrator", "password": "adminpass"}
-# # headers = {"accept": "application/json",
-# #            "content-type": "application/json",
-# #            "x-api-version": "120"
-# #           }
-
-# # response = session.post(url, headers=headers, verify=False)
-
-# # session_id = response.json()["sessionID"]
-
-# url = "https://hz7xtzk10h.execute-api.us-east-1.amazonaws.com/Prod/alags/?t=10:00"
-# headers = {"accept": "application/json",
-#            "content-type": "text/csv",
-#            "x-api-version": "2"
-#           }
-
-# response = session.get(url, headers=headers, verify=False)
-
-# print(response)
+print(result.json())
 
