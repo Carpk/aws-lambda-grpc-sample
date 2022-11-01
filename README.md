@@ -12,6 +12,14 @@ This was developed using Python 3.9
 
 Each set of scipts are in thier own directory
 
+### Log Generator
+
+The log generator is on an EC2 instance an can be ran using:
+
+`sbt clean compile run | aws s3 cp - s3://log-generator-files-cs441/logs/LogX.log`
+
+Where LogX can be any numerical log, as we use Log2 for testing in the video.
+
 ### Python Clients
 
 Adjust the YAML config file to make adjustments to the settings
@@ -26,13 +34,21 @@ First we need to start the gPRC server
 
 `python grpc_server.py`
 
-### Log Generator
+Then start the client
 
-The log generator is on an EC2 instance an can be ran using:
+`python grpc_client.py`
 
-`sbt clean compile run | aws s3 cp - s3://log-generator-files-cs441/logs/LogX.log`
+### Lambda Script
 
-Where LogX can be any numerical log, as we use Log2 for testing in the video.
+The lambda sripts that are on AWS
+
+`python lambdaRun.py`
+
+### Tests
+
+Tests are only in the lambda directory:
+
+`python lambdaTest.py`
 
 ## Video Demonstration
 
