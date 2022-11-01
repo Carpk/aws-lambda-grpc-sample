@@ -7,7 +7,6 @@ These are a group of scripts used to generate log files on EC2, stored on S3, an
 
 This was developed using Python 3.9
 
-
 ## Running the Scripts
 
 Each set of scipts are in thier own directory
@@ -20,13 +19,17 @@ The log generator is on an EC2 instance an can be ran using:
 
 Where LogX can be any numerical log, as we use Log2 for testing in the video.
 
-### Python Clients
+### REST Client
 
-Adjust the YAML config file to make adjustments to the settings
+Scripts are in the client directory
+
+Adjust the YAML config file for your configuration
 
 To make a python REST call:
 
 `python restQuery.py`
+
+### gRPC Client
 
 To make a gPRC call:
 
@@ -40,13 +43,15 @@ Then start the client
 
 ### Lambda Script
 
-The lambda sripts that are on AWS
+AWS Lambda scripts are saved in the lambda directory
+
+A working copy used for development can be ran using:
 
 `python lambdaRun.py`
 
-### Tests
+## Tests
 
-Tests are only in the lambda directory:
+Tests are currently only in the lambda directory:
 
 `python lambdaTest.py`
 
