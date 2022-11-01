@@ -34,7 +34,7 @@ The log generator is on an EC2 instance an can be ran using:
 
 Where LogX can be any numerical log, as we use Log2 for testing in the video.
 
-### Video Demonstration
+## Video Demonstration
 
 A short video demonstration on how to run the scripts
 

@@ -1,6 +1,6 @@
 url: https://hz7xtzk10h.execute-api.us-east-1.amazonaws.com/Prod/alags
 time: "02:12:00"
-delta: "1:00"
+delta: "06:00"
 regex: ([a-c][e-g][0-3]|[A-Z][5-9][f-w]){5,15}
 bucket: log-generator-files-cs441
 log: logs/Log1.log
