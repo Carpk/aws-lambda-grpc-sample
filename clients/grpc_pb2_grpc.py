@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import helloworld_pb2 as helloworld__pb2
+import grpc_pb2 as grpc__pb2
 
 
 class GreeterStub(object):
@@ -17,8 +17,8 @@ class GreeterStub(object):
         """
         self.SayHello = channel.unary_unary(
                 '/helloworld.Greeter/SayHello',
-                request_serializer=helloworld__pb2.HelloRequest.SerializeToString,
-                response_deserializer=helloworld__pb2.HelloReply.FromString,
+                request_serializer=grpc__pb2.HelloRequest.SerializeToString,
+                response_deserializer=grpc__pb2.HelloReply.FromString,
                 )
 
 
@@ -38,8 +38,8 @@ def add_GreeterServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SayHello': grpc.unary_unary_rpc_method_handler(
                     servicer.SayHello,
-                    request_deserializer=helloworld__pb2.HelloRequest.FromString,
-                    response_serializer=helloworld__pb2.HelloReply.SerializeToString,
+                    request_deserializer=grpc__pb2.HelloRequest.FromString,
+                    response_serializer=grpc__pb2.HelloReply.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
